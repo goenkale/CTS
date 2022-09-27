@@ -11,32 +11,57 @@ v0.0.1, {docdate}
 :hardbreaks:
 :experimental:
 
-== Introduction
-
-What is this about?
-
 == Objectives
 
-- Understand how this feature works
+The purpose of this tutorial is to understand what can be simulated in a process definition and why should we include it in our tests.
+
+== Introduction
+
+=== What is a token?
+
+The execution of a process definition is also known as a process instance. A token represents a virtual instance of a process definition.
+
+=== Why using tokens to simulate?
+
+Running process instances requiere, for example, some input data, human intervention, conexion to external information systems... *Tokens will go free through the process flow with no requirements*. This is useful to validate our process instance expectations.
 
 
-== TEST
+WARNING: *DISCLAIMER* _Token simulation is not based on time nor in frequence. It won't return any time or frequence metrics._
 
-Some images:
+=== How does it work?
 
-image::processes/toggle.gif[title="Toggle Token Simulation feature"]
-image::processes/start-simulation.gif[title="Start the Token Simulation"]
+==== Enable the Token Simulation
 
-Some more: 
+- Toggle the Token Simulation to enable the feature.
 
-image::processes/play.gif[title="Play a Token Simulation"]
+image::processes/toggle.gif[title="Enable the Token Simulation"]
+
+==== Start a Token Simulation
+
+- Click image:icons/play.png[play] in the Start event of your process definition.
+
+image::processes/start-simulation.gif[title="Start a Token Simulation"]
+
+==== Check the Token Simulation log
+
+image::processes/play.gif[title="Check the Token Simulation log"]
+
+==== Switch the Token Simulation speed
+
 image::processes/speed.gif[title="Speed of the Token Simulation"]
 
 == HANDS ON EXERCISE
 
 
 
+== QUESTIONS
 
+== WANT MORE? CHECK THIS OUT
+
+Related links
+- Camunda doc
+- YouTube
+- others?
 
 == Business Data Model
 
