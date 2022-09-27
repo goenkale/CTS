@@ -22,10 +22,13 @@ What is this about?
 
 == TEST
 
-Some images
+Some images:
 
 image::processes/toggle.gif[title="Toggle Token Simulation feature"]
 image::processes/start-simulation.gif[title="Start the Token Simulation"]
+
+Some more: 
+
 image::processes/play.gif[title="Play a Token Simulation"]
 image::processes/speed.gif[title="Speed of the Token Simulation"]
 
