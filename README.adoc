@@ -58,9 +58,21 @@ image::processes/speed.gif[title="Token Simulation speed"]
 
 
 
-== Validate your knowledge
+== Test your knowledge
 
+Select the right answers for the following statements:
 
+. Camunda Token Simulation feature let me
+  .. switch the token speed
+  .. identify the bottlenecks 
+  .. know how many time my process instance will take
+  .. create multiple tokens at once
+  .. 
+  .. display the token simulation log
+  .. start/stop tokens
+  .. 
+
+. 
 
 == Related content
 
