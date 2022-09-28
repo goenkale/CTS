@@ -16,7 +16,7 @@
       <bpmn:lane id="Lane_GeneralSupport" name="General Suppport">
         <bpmn:flowNodeRef>Task_Qualify</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_GeneralSupportResolution</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Gateway_0v0mgsd</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_MergeResolution</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_AdvancedSupport" name="Advanced Support">
         <bpmn:flowNodeRef>Task_Analyze</bpmn:flowNodeRef>
@@ -41,20 +41,20 @@
     <bpmn:sequenceFlow id="Flow_AnalysisNeeded" name="Analysis needed" sourceRef="Gateway_GeneralSupportResolution" targetRef="Task_Analyze">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=status="analyze"</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_Resolved" name="resolved" sourceRef="Gateway_GeneralSupportResolution" targetRef="Gateway_0v0mgsd">
+    <bpmn:sequenceFlow id="Flow_Resolved" name="resolved" sourceRef="Gateway_GeneralSupportResolution" targetRef="Gateway_MergeResolution">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=status="resolved"</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_0i4upbb" sourceRef="Gateway_0v0mgsd" targetRef="Task_NotifyResolution" />
+    <bpmn:sequenceFlow id="Flow_0i4upbb" sourceRef="Gateway_MergeResolution" targetRef="Task_NotifyResolution" />
     <bpmn:sequenceFlow id="Flow_1y74fzi" sourceRef="Task_NotifyResolution" targetRef="Event_EndTicket" />
     <bpmn:sequenceFlow id="Flow_1o306f2" sourceRef="Task_Analyze" targetRef="Gateway_AdvancedSupportResolution" />
-    <bpmn:sequenceFlow id="Flow_ResolvedByAdvancedSupport" name="resolved" sourceRef="Gateway_AdvancedSupportResolution" targetRef="Gateway_0v0mgsd">
+    <bpmn:sequenceFlow id="Flow_ResolvedByAdvancedSupport" name="resolved" sourceRef="Gateway_AdvancedSupportResolution" targetRef="Gateway_MergeResolution">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=status="resolved"</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_TechnicalReview" name="technical review needed" sourceRef="Gateway_AdvancedSupportResolution" targetRef="Task_ScheduleOnsiteVisit">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=status="schedule"</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_104ulos" sourceRef="Task_ScheduleOnsiteVisit" targetRef="Task_Resolve" />
-    <bpmn:sequenceFlow id="Flow_1jhlr9e" sourceRef="Task_Resolve" targetRef="Gateway_0v0mgsd" />
+    <bpmn:sequenceFlow id="Flow_1jhlr9e" sourceRef="Task_Resolve" targetRef="Gateway_MergeResolution" />
     <bpmn:sequenceFlow id="Flow_1roryev" sourceRef="Task_ProvideTicketInformation" targetRef="Gateway_Merge" />
     <bpmn:userTask id="Task_Qualify" name="Qualify">
       <bpmn:incoming>Flow_0bdacp1</bpmn:incoming>
@@ -78,12 +78,6 @@
     <bpmn:endEvent id="Event_EndTicket" name="EndTicket">
       <bpmn:incoming>Flow_1y74fzi</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:exclusiveGateway id="Gateway_0v0mgsd">
-      <bpmn:incoming>Flow_Resolved</bpmn:incoming>
-      <bpmn:incoming>Flow_ResolvedByAdvancedSupport</bpmn:incoming>
-      <bpmn:incoming>Flow_1jhlr9e</bpmn:incoming>
-      <bpmn:outgoing>Flow_0i4upbb</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
     <bpmn:userTask id="Task_Analyze" name="Analyze">
       <bpmn:incoming>Flow_AnalysisNeeded</bpmn:incoming>
       <bpmn:outgoing>Flow_1o306f2</bpmn:outgoing>
@@ -110,6 +104,12 @@
       <bpmn:incoming>Flow_0i4upbb</bpmn:incoming>
       <bpmn:outgoing>Flow_1y74fzi</bpmn:outgoing>
     </bpmn:manualTask>
+    <bpmn:parallelGateway id="Gateway_MergeResolution" name="Merge resolution">
+      <bpmn:incoming>Flow_Resolved</bpmn:incoming>
+      <bpmn:incoming>Flow_ResolvedByAdvancedSupport</bpmn:incoming>
+      <bpmn:incoming>Flow_1jhlr9e</bpmn:incoming>
+      <bpmn:outgoing>Flow_0i4upbb</bpmn:outgoing>
+    </bpmn:parallelGateway>
     <bpmn:textAnnotation id="TextAnnotation_1qbkyt0">
       <bpmn:text>Technical team's manager will select the technician to check and fix the issue on customer's place</bpmn:text>
     </bpmn:textAnnotation>
@@ -167,9 +167,6 @@
           <dc:Bounds x="1156" y="185" width="49" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_0v0mgsd_di" bpmnElement="Gateway_0v0mgsd" isMarkerVisible="true">
-        <dc:Bounds x="995" y="315" width="50" height="50" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1lypkff_di" bpmnElement="Task_Analyze">
         <dc:Bounds x="770" y="470" width="100" height="80" />
       </bpmndi:BPMNShape>
@@ -191,12 +188,18 @@
         <dc:Bounds x="350" y="120" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_05q6s26_di" bpmnElement="Task_NotifyResolution">
-        <dc:Bounds x="990" y="120" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1qbkyt0_di" bpmnElement="TextAnnotation_1qbkyt0">
         <dc:Bounds x="790" y="674" width="100" height="111" />
         <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_05q6s26_di" bpmnElement="Task_NotifyResolution">
+        <dc:Bounds x="970" y="120" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_143wsha_di" bpmnElement="Gateway_MergeResolution">
+        <dc:Bounds x="995" y="315" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1029" y="293" width="82" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0zuolyv_di" bpmnElement="Flow_0zuolyv">
         <di:waypoint x="288" y="160" />
@@ -225,7 +228,7 @@
         <di:waypoint x="820" y="365" />
         <di:waypoint x="820" y="470" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="839" y="393" width="81" height="14" />
+          <dc:Bounds x="829" y="383" width="81" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0wj8pyk_di" bpmnElement="Flow_Resolved">
@@ -237,12 +240,10 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0i4upbb_di" bpmnElement="Flow_0i4upbb">
         <di:waypoint x="1020" y="315" />
-        <di:waypoint x="1020" y="258" />
-        <di:waypoint x="1040" y="258" />
-        <di:waypoint x="1040" y="200" />
+        <di:waypoint x="1020" y="200" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1y74fzi_di" bpmnElement="Flow_1y74fzi">
-        <di:waypoint x="1090" y="160" />
+        <di:waypoint x="1070" y="160" />
         <di:waypoint x="1162" y="160" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1o306f2_di" bpmnElement="Flow_1o306f2">
