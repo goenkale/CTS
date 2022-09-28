@@ -92,6 +92,7 @@ image::processes/ticketing-bpmn.png[title="Ticketing BPMN diagram"]
 
 
 
+
 == Validate your knowledge
 
 Select the right answers for the following statements:
