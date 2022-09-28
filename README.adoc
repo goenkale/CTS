@@ -98,7 +98,7 @@ image::processes/ticketing-bpmn.png[title="Ticketing BPMN diagram"]
 
 ==== Scenario 1
 
-Enable the Token Simulation and start a new token with a low speed. Try to follow this scenario 1 switching the gateways in real time using this button image:icons/switchGateway.png[]
+Enable the Token Simulation and start a new token with a slow speed. Try to follow this scenario 1 switching the gateways in real time using this button image:icons/switchGateway.png[]
 
 The _**General Support**_ team will:
 
@@ -128,6 +128,8 @@ image::icons/switchToExclusive.png[title="Ticketing BPMN diagram - Token Simulat
 image::icons/scenario1finished.png[title="Ticketing BPMN diagram - Token Simulation: Scenario 1 finished"]
 
 In this Scenario 1 we found a bottleneck thanks to the Token Simulation that we could fix.
+
+image::icons/ticketing-scenario1.gif[title="Ticketing BPMN diagram - Token Simulation: Scenario 1"]
 
 ==== Scenario 2
 
