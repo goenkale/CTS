@@ -26,7 +26,7 @@ The execution of a process definition is also known as a process instance. A tok
 Running process instances usually require some input data, human intervention, connexion to external information systems and so on. *Tokens will go free through the process flow with no requirements*. This is useful to validate our process instance expectations.
 
 
-WARNING: *DISCLAIMER* _Token simulation is not based on time or on frequency. It won't return any time or frequency metrics._
+NOTE: *DISCLAIMER* _Token simulation is not based on time or on frequency. It won't return any time or frequency metrics._
 
 === How does it work?
 
