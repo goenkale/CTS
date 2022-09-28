@@ -88,14 +88,48 @@ image::icons/cluster-deploy.png[title="Deploy your BPMN diagram into your cluste
 
 This BPMN diagram describes a Ticketing process definition from a Customer Support team. 
 
-image::icons/XORGateway.png[] Exclusive gateways help us to take process flows based on conditions. They are useful to merge process flows.
+image:icons/XORGateway.png[] Exclusive gateways help us to take process flows based on conditions. They are useful to merge process flows.
 
-icon:XORGateway[] Outgoing transition(s)
+
+image:icons/ANDGateway.png[] Parallele gateways take all the outgoing flows. They also wait for all input flows to arrive before continuing the process.
+
 
 image::processes/ticketing-bpmn.png[title="Ticketing BPMN diagram"]
 
+==== Scenario 1
 
+Enable the Token Simulation and start a new token with a low speed. Try to follow this scenario 1 switching the gateways in real time using this button image:icons/switchGateway.png[]
 
+The _**General Support**_ team will:
+
+-  *Qualify* the ticket with a first resolution as "**Additional information needed**". 
+- Wait for the customer to "**Provide Additional Information**".
+- *Qualify* again the ticket with a second resolution as "**Analyze needed**".
+
+The _**Advanced Support**_ team will:
+- *Analyze* the ticket with a resolution as "**Schedule onsite visit**"
+
+The _**Technical Support**_ team will:
+- *Schedule onsite visit* to solve the ticket by a tecnician.
+- *Resolve* the ticket.
+
+CAUTION: The token is blocked at the Paralelle gateway.
+
+image::icons/scenario1.png[title="Ticketing BPMN diagram - Token Simulation: Scenario 1"]
+
+- Disable the Token Simulation
+- Switch the Paralelle gateway to an Exclusive gateway
+
+image::icons/switchToExclusive.png[title="Ticketing BPMN diagram - Token Simulation: Scenario 1"]
+
+- Enable the Token Simulation.
+- Start a new token to run the scenario 1 again.
+
+image::icons/scenario1finished.png[title="Ticketing BPMN diagram - Token Simulation: Scenario 1 finished"]
+
+In this Scenario 1 we found a bottleneck thanks to the Token Simulation that we could fix.
+
+==== Scenario 2
 
 == Validate your knowledge
 
