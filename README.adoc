@@ -26,7 +26,7 @@ The execution of a process definition is also known as a process instance. A tok
 Running process instances usually require some input data, human intervention, connexion to external information systems and so on. *Tokens will go free through the process flow with no requirements*. This is useful to validate our process instance expectations.
 
 
-WARNING: _Token simulation is not based on time or on frequency. It won't return any time or frequency metrics._
+CAUTION: _Token simulation is not based on time or on frequency. It won't return any time or frequency metrics._
 
 === How does it work?
 
@@ -84,9 +84,13 @@ image::icons/ticketing.bpmn.png[title="Uploaded BPMN diagram ticketing.bpmn"]
 
 image::icons/cluster-deploy.png[title="Deploy your BPMN diagram into your cluster"]
 
-=== Test your BPMN diagram
+=== Test the Ticketing BPMN diagram
 
 This BPMN diagram describes a Ticketing process definition from a Customer Support team. 
+
+image::icons/XORGateway.png[] Exclusive gateways help us to take process flows based on conditions. They are useful to merge process flows.
+
+icon:XORGateway[] Outgoing transition(s)
 
 image::processes/ticketing-bpmn.png[title="Ticketing BPMN diagram"]
 
