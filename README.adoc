@@ -1,4 +1,4 @@
-= Camunda - Token Simulation Tutorial
+= image:icons/black-C.png[width=5%] Camunda - Token Simulation Tutorial
 Scenario 2: Creating a tutorial
 v0.0.1, {docdate}
 :toc: left
@@ -13,7 +13,7 @@ v0.0.1, {docdate}
 
 == Objectives
 
-The purpose of this tutorial is to understand what can be simulated in a process definition and why should we include it in our tests.
+The purpose of this tutorial is to understand what can be simulated in a process definition using Camunda Platform 8 and why should we include it in our tests.
 
 == Introduction
 
@@ -21,12 +21,12 @@ The purpose of this tutorial is to understand what can be simulated in a process
 
 The execution of a process definition is also known as a process instance. A token represents a virtual instance of a process definition.
 
-=== Why using tokens to simulate?
+=== Why use tokens to simulate?
 
-Running process instances requiere, for example, some input data, human intervention, conexion to external information systems... *Tokens will go free through the process flow with no requirements*. This is useful to validate our process instance expectations.
+Running process instances usually require some input data, human intervention, connexion to external information systems and so on. *Tokens will go free through the process flow with no requirements*. This is useful to validate our process instance expectations.
 
 
-WARNING: *DISCLAIMER* _Token simulation is not based on time nor in frequence. It won't return any time or frequence metrics._
+WARNING: *DISCLAIMER* _Token simulation is not based on time or on frequency. It won't return any time or frequency metrics._
 
 === How does it work?
 
@@ -40,27 +40,32 @@ image::processes/toggle.gif[title="Enable the Token Simulation"]
 
 - Click image:icons/play.png[play] in the Start event of your process definition.
 
-image::processes/start-simulation.gif[title="Start a Token Simulation"]
+image::processes/start-simulation.gif[title="Token Simulation execution"]
 
 ==== Check the Token Simulation log
 
-image::processes/play.gif[title="Check the Token Simulation log"]
+- Click image:icons/log.png[log] in the action buttons at the top left corner.
+
+image::processes/play.gif[title="Token Simulation log"]
 
 ==== Switch the Token Simulation speed
 
-image::processes/speed.gif[title="Speed of the Token Simulation"]
+- Click image:icons/speed.png[speed] in the action buttons at the bottom.
 
-== HANDS ON EXERCISE
+image::processes/speed.gif[title="Token Simulation speed"]
+
+== Use Case scenario
 
 
 
-== QUESTIONS
+== Validate your knowledge
 
-== WANT MORE? CHECK THIS OUT
 
-Related links
-- Camunda doc
-- YouTube
+
+== Related content
+
+- https://docs.camunda.io/docs/components/modeler/web-modeler/token-simulation/[Camunda Platform 8 documentation - Token Simulation]
+- https://www.youtube.com/watch?v=fv3wPccIpL8&list=PLJG25HlmvsOUvvKB7Iiy6H5brYhb_W8Lc&index=1[Camunda Platform 8 videos - Code Studio]
 - others?
 
 == Business Data Model
