@@ -56,18 +56,52 @@ image::processes/speed.gif[title="Token Simulation speed"]
 
 == Use Case scenario
 
+Let's demonstrate the Token Simulation using a use case scenario.
+
+=== Import a BPMN diagram to your project
+
+- Download this process definition link:/ticketing.bpmn[]
+
+- Connect to your https://modeler.cloud.camunda.io/[Camunda Platform 8 - Modeler]
+
+- Create a new project called "*Token Simulation Test*"
+
+- Click **New** button > **Upload files**
+
+image::icons/upload.png[title="Upload the shared file ticketing.bpmn"]
+
+- Browse to your **_ticketing.bpmn_** file
+
+- Click "*Open*" button
+
+image::icons/ticketing.bpmn.png[title="Uploaded BPMN diagram ticketing.bpmn"]
+
+- Click the *ticketing.bpmn* BPMN diagram
+
+- Deploy your diagram using the button image:icons/deploy.png[Deploy ticketing.bpmn, width=30%]
+
+- Select your cluster and click *Deploy*
+
+image::icons/cluster-deploy.png[title="Deploy your BPMN diagram into your cluster"]
+
+=== Test your BPMN diagram
+
+This BPMN diagram describes a Ticketing process definition from a Customer Support team. 
+
+image::processes/ticketing-bpmn.png[title="Ticketing BPMN diagram"]
 
 
-== Test your knowledge
+
+== Validate your knowledge
 
 Select the right answers for the following statements:
 
 . Camunda Token Simulation feature let me
   .. switch the token speed
   .. identify the bottlenecks 
-  .. know how many time my process instance will take
+  .. know how many time my process instances will take (average)
   .. create multiple tokens at once
-  .. 
+  .. define a number of tokens to evaluate the most common path taken
   .. display the token simulation log
   .. start/stop tokens
   .. 
