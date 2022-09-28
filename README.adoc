@@ -125,11 +125,11 @@ image::icons/switchToExclusive.png[title="Ticketing BPMN diagram - Token Simulat
 - Enable the Token Simulation.
 - Start a new token to run the scenario 1 again.
 
-image::icons/scenario1finished.png[title="Ticketing BPMN diagram - Token Simulation: Scenario 1 finished"]
+image::icons/ticketing-scenario1.gif[title="Ticketing BPMN diagram - Token Simulation: Scenario 1 finished"]
 
 In this Scenario 1 we found a bottleneck thanks to the Token Simulation that we could fix.
 
-image::icons/ticketing-scenario1.gif[title="Ticketing BPMN diagram - Token Simulation: Scenario 1"]
+
 
 ==== Scenario 2
 
