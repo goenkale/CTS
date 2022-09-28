@@ -54,11 +54,11 @@ image::processes/play.gif[title="Token Simulation log"]
 
 image::processes/speed.gif[title="Token Simulation speed"]
 
-== Use Case scenario
+== Use Case scenario: Ticketing
 
 Let's demonstrate the Token Simulation using a use case scenario.
 
-=== Import a BPMN diagram to your project
+=== Import the Ticketing BPMN diagram to your project
 
 - Download this process definition link:/ticketing.bpmn[]
 
