@@ -177,7 +177,7 @@ image::tokenSimulations/scenario2-success.gif[title="Ticketing BPMN diagram - To
 
 === Conclusion
 
-In this Ticketing example we detected two bottlenecks of different natures: one of them was [.underline]#bloking# the process flow and the other was [.underline]#duplicating# a task.
+In this Ticketing example we detected two bottlenecks of different natures: one of them was [.underline]#bloking# the process flow (Scenario1) and the other was [.underline]#duplicating# a task (Scenario2).
 Token Simulation feature could help us validating our process flows. 
 
 
