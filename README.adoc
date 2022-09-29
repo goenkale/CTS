@@ -3,7 +3,7 @@ Scenario 2: Creating a tutorial
 v0.0.1, {docdate}
 :toc: left
 :toc-title: Table of contents
-:toclevels: 2
+:toclevels: 3
 :imagesdir: ./documentation/images
 :icons: font
 :sectnums: numbered
@@ -24,7 +24,6 @@ The execution of a process definition is also known as a process instance. A tok
 === Why use tokens to simulate?
 
 Running process instances usually require some input data, human intervention, connexion to external information systems and so on. *Tokens will go free through the process flow with no requirements*. This is useful to validate our process instance expectations.
-
 
 CAUTION: _Token simulation is not based on time or on frequency. It won't return any time or frequency metrics._
 
@@ -96,58 +95,108 @@ image:icons/ANDGateway.png[] Parallele gateways take all the outgoing flows. The
 
 image::processes/ticketing-bpmn.png[title="Ticketing BPMN diagram"]
 
-==== Scenario 1
+==== Scenario 1 - STEPS
 
-Enable the Token Simulation and start a new token with a slow speed. Try to follow this scenario 1 switching the gateways in real time using this button image:icons/switchGateway.png[]
+The _**Customer**_ will:
+
+- *Provide ticket information* in a human task.
 
 The _**General Support**_ team will:
 
 -  *Qualify* the ticket with a first resolution as "**Additional information needed**". 
 - Wait for the customer to "**Provide Additional Information**".
-- *Qualify* again the ticket with a second resolution as "**Analyze needed**".
+- *Qualify* again the ticket with a second resolution as "**resolved**".
+
+The _**Customer**_ will:
+
+- *Notify resolution* in a manual task.
+
+===== Scenario 1 - TEST
+
+Enable the Token Simulation and start a new token. Try to follow this Scenario 1 switching the gateways in real time using this button image:icons/switchGateway.png[]
+
+===== Scenario 1 - TEST RESULT
+
+image::tokenSimulations/scenario1-failed.gif[title="Ticketing BPMN diagram - Token Simulation: Scenario 1 failed"]
+The token is blocked at the Parallele gateway, which is waiting for all the incoming flows to arrive before continuing. But only one arrives.
+
+===== HOW TO FIX IT
+
+- Disable the Token Simulation
+- Switch the Paralelle gateway to an Exclusive gateway
+
+image::icons/switchToExclusive.png[title="Switch a Gateway type"]
+
+- Enable the Token Simulation.
+- Start a new token to run the scenario 1 again.
+
+image::tokenSimulations/scenario1-success.gif[title="Ticketing BPMN diagram - Token Simulation: Scenario 1 finished"]
+
+
+==== Scenario 2 - STEPS
+
+The _**Customer**_ will:
+
+- *Provide ticket information* in a human task.
+
+The _**General Support**_ team will:
+
+-  *Qualify* the ticket with a resolution as "**Analysis needed**". 
 
 The _**Advanced Support**_ team will:
 - *Analyze* the ticket with a resolution as "**Schedule onsite visit**"
 
 The _**Technical Support**_ team will:
-- *Schedule onsite visit* to solve the ticket by a tecnician.
-- *Resolve* the ticket.
+- *Schedule onsite visit* to a tecnician available.
+- *Resolve* the ticket by a tecnician.
 
-CAUTION: The token is blocked at the Paralelle gateway.
+The _**Customer**_ will:
 
-image::icons/scenario1.png[title="Ticketing BPMN diagram - Token Simulation: Scenario 1"]
+- *Notify resolution* in a manual task.
+
+===== Scenario 2 - TEST
+
+Enable the Token Simulation and start a new token. Try to follow this Scenario 2 switching the gateways in real time using this button image:icons/switchGateway.png[]
+
+===== Scenario 2 - TEST RESULT
+
+image::tokenSimulations/scenario2-failed.gif[title="Ticketing BPMN diagram - Token Simulation: Scenario 2 failed"]
+
+The token is duplicated after the *Analyze* human task at the Parallele gateway, which is triggering all the outgoing flows. 
+
+Then, the *Notify Resolution* manual task is executed twice, as a consequence.
+
+===== HOW TO FIX IT
 
 - Disable the Token Simulation
 - Switch the Paralelle gateway to an Exclusive gateway
-
-image::icons/switchToExclusive.png[title="Ticketing BPMN diagram - Token Simulation: Scenario 1"]
-
 - Enable the Token Simulation.
-- Start a new token to run the scenario 1 again.
+- Start a new token to run the Scenario 2 again.
 
-image::icons/ticketing-scenario1.gif[title="Ticketing BPMN diagram - Token Simulation: Scenario 1 finished"]
+image::tokenSimulations/scenario2-success.gif[title="Ticketing BPMN diagram - Token Simulation: Scenario 2 finished"]
 
-In this Scenario 1 we found a bottleneck thanks to the Token Simulation that we could fix.
+=== Conclusion
 
+In this Ticketing example we detected two bottlenecks of different natures: one of them was [.underline]#bloking# the process flow and the other was [.underline]#duplicating# a task.
+Token Simulation feature could help us validating our process flows. 
 
-
-==== Scenario 2
 
 == Validate your knowledge
 
 Select the right answers for the following statements:
 
-. Camunda Token Simulation feature let me
+. The Token Simulation feature let me
   .. switch the token speed
-  .. identify the bottlenecks 
-  .. know how many time my process instances will take (average)
-  .. create multiple tokens at once
-  .. define a number of tokens to evaluate the most common path taken
   .. display the token simulation log
   .. start/stop tokens
-  .. 
+  .. do all the previous actions
 
-. 
+. Token Simulation is useful to
+  .. know how many time my process instances will take (in average)
+  .. define a number of tokens to evaluate the most common path taken
+  .. identify process bottlenecks 
+  .. run my process backwards
+
 
 == Related content
 
