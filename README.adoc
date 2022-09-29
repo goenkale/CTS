@@ -202,4 +202,3 @@ Select the right answers for the following statements:
 
 - https://docs.camunda.io/docs/components/modeler/web-modeler/token-simulation/[Camunda Platform 8 documentation - Token Simulation]
 - https://www.youtube.com/watch?v=fv3wPccIpL8&list=PLJG25HlmvsOUvvKB7Iiy6H5brYhb_W8Lc&index=1[Camunda Platform 8 videos - Code Studio]
-- others?
